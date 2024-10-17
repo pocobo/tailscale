@@ -13,7 +13,7 @@ RUN git clone -b $BRANCH $MODIFIED_DERPER_GIT tailscale --depth 1
 RUN cd /app/tailscale/cmd/derper && /usr/local/go/bin/go build -ldflags "-s -w" -o /app/derper
 RUN cd /app && rm -rf /app/tailscale
 
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 WORKDIR /app
 
 # ========= CONFIG =========
