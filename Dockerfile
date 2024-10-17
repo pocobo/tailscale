@@ -30,7 +30,7 @@ RUN apt-get update && \
 
 COPY build_cert.sh /app/
 COPY --from=builder /app/derper /app/derper
-
+RUN apt-get update && apt-get install -y libc6
 # build self-signed certs && start derper
 CMD bash /app/build_cert.sh $DERP_HOST $DERP_CERTS /app/san.conf && \
     /app/derper --hostname=$DERP_HOST \
